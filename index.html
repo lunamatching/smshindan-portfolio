@@ -12,8 +12,6 @@
       --surface: #ffffff;
       --surface2: #f0f0f8;
       --accent: #7c3aed;
-      --accent2: #e11d74;
-      --accent3: #0ea5e9;
       --text: #1a1a2e;
       --text-muted: #5a5a7a;
       --border: #e0e0ee;
@@ -30,194 +28,136 @@
 
     /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: sticky; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(248,248,252,0.92);
-      backdrop-filter: blur(12px);
+      padding: 0.8rem 2rem;
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
     }
-    nav .logo { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--accent); }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav ul a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    nav .logo { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; color: var(--text); }
+    nav .logo span { color: var(--text-muted); font-weight: 400; }
+    nav ul { list-style: none; display: flex; gap: 1.8rem; }
+    nav ul a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; }
     nav ul a:hover { color: var(--text); }
 
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
+    /* ─── PROJECT HEADER ─── */
+    .project-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      border-bottom: 1px solid var(--border);
     }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 30% 40%, rgba(124,58,237,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 70% 60%, rgba(225,29,116,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-tag {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
+    .project-meta {
       font-size: 0.75rem;
-      color: var(--accent);
       letter-spacing: 0.12em;
-      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
-    .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
+    .project-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
+      line-height: 1.25;
+      margin-bottom: 1rem;
     }
-    .hero h1 span {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-sub {
-      font-size: 1.05rem;
+    .project-header .subtitle {
+      font-size: 0.95rem;
       color: var(--text-muted);
-      max-width: 720px;
-      margin-bottom: 2.5rem;
+      max-width: 680px;
+      margin-bottom: 1.8rem;
+      line-height: 1.8;
     }
-    .hero-badges {
-      display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center;
-      margin-bottom: 3rem;
+    .header-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 1.8rem;
     }
-    .badge {
-      padding: 0.4rem 0.9rem;
-      background: var(--surface2);
+    .tag {
+      padding: 0.3rem 0.75rem;
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.78rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
       color: var(--text-muted);
     }
-    .badge.primary {
+    .tag.accent {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(124,58,237,0.06);
     }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.8rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    .header-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
       color: #fff;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: opacity 0.2s, transform 0.2s;
     }
-    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .header-link:hover { opacity: 0.85; }
 
     /* ─── SECTIONS ─── */
-    section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+    section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
     section:not(:last-child) { border-bottom: 1px solid var(--border); }
 
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
     h2 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
       font-weight: 700;
       margin-bottom: 2rem;
       line-height: 1.3;
     }
-    h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
-
-    /* ─── OVERVIEW GRID ─── */
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin-bottom: 3rem;
-    }
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s;
-    }
-    .stat-card:hover { border-color: var(--accent); }
-    .stat-card .num {
-      font-size: 2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .stat-card .label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
 
     /* ─── CARDS ─── */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.8rem;
-      margin-bottom: 1.2rem;
-      transition: border-color 0.2s;
+      border-radius: 8px;
+      padding: 1.6rem;
+      margin-bottom: 1rem;
     }
-    .card:hover { border-color: var(--accent); }
-    .card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.8; }
-    .card ul { color: var(--text-muted); font-size: 0.92rem; padding-left: 1.2rem; }
+    .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+    .card ul { color: var(--text-muted); font-size: 0.9rem; padding-left: 1.2rem; }
     .card ul li { margin-bottom: 0.4rem; line-height: 1.8; }
 
     /* ─── TWO COL ─── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media(max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
 
     /* ─── PERSONA ─── */
     .persona {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .persona::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      padding: 1.6rem;
+      border-left: 3px solid var(--accent);
     }
     .persona-tag {
       display: inline-block;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.8rem;
+      font-size: 0.68rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.6rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
     }
-    .persona-tag.main { background: rgba(124,58,237,0.1); color: var(--accent); }
-    .persona-tag.sub { background: rgba(14,165,233,0.1); color: var(--accent3); }
-    .persona h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
-    .persona .age { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .persona-tag.main { background: rgba(124,58,237,0.08); color: var(--accent); }
+    .persona-tag.sub { background: rgba(14,165,233,0.08); color: #0ea5e9; }
+    .persona h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .persona .age { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 0.8rem; }
     .persona ul { list-style: none; padding: 0; }
     .persona ul li {
-      padding: 0.5rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      display: flex; align-items: flex-start; gap: 0.6rem;
+      display: flex; align-items: flex-start; gap: 0.5rem;
     }
     .persona ul li:last-child { border-bottom: none; }
     .persona ul li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
@@ -226,111 +166,69 @@
     .axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media(max-width: 540px) { .axis-grid { grid-template-columns: 1fr; } }
     .axis-card {
-      background: var(--surface2);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 1.2rem;
     }
     .axis-card .axis-num {
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       letter-spacing: 0.15em;
-      color: var(--accent2);
+      color: var(--text-muted);
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
-    .axis-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
-    .axis-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+    .axis-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .axis-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
     .vs {
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      display: flex; align-items: center; gap: 0.4rem;
       margin: 0.4rem 0;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
     }
-    .vs span { padding: 0.2rem 0.6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); font-size: 0.78rem; }
-
-    /* ─── TIMELINE / RESEARCH ─── */
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), var(--accent2));
-      border-radius: 2px;
-    }
-    .tl-item { position: relative; margin-bottom: 2rem; }
-    .tl-item::before {
-      content: '';
-      position: absolute; left: -2.45rem; top: 0.35rem;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg);
-    }
-    .tl-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
-    .tl-item p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.7; }
-
-    /* ─── STRATEGY ─── */
-    .strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-    .strategy-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    .strategy-card .icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
-    }
-    .strategy-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .strategy-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
+    .vs span { padding: 0.15rem 0.5rem; border-radius: 3px; background: var(--surface2); border: 1px solid var(--border); font-size: 0.76rem; }
 
     /* ─── QUOTE ─── */
     blockquote {
-      border-left: 3px solid var(--accent);
-      padding: 0.6rem 1.2rem;
-      background: var(--surface);
-      border-radius: 0 8px 8px 0;
+      border-left: 3px solid var(--border);
+      padding: 0.5rem 1rem;
       margin: 0.5rem 0;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
       font-style: italic;
     }
 
     /* ─── TECH ─── */
-    .tech-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .tech-chip {
-      padding: 0.35rem 0.85rem;
+      padding: 0.3rem 0.75rem;
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.78rem;
+      border-radius: 4px;
+      font-size: 0.76rem;
       color: var(--text-muted);
       background: var(--surface);
     }
 
     /* ─── STATUS BANNER ─── */
     .status-banner {
-      background: rgba(124,58,237,0.06);
-      border: 1px solid rgba(124,58,237,0.25);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 1rem;
     }
-    .status-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
-      animation: pulse 2s infinite;
+    .status-banner p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+    .status-banner strong { color: var(--text); }
+
+    /* ─── STRATEGY CARDS ─── */
+    .strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .strategy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem;
     }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(124,58,237,0.2); }
-      50% { box-shadow: 0 0 0 6px rgba(124,58,237,0.08); }
-    }
-    .status-banner p { font-size: 0.92rem; color: var(--text-muted); margin: 0; }
-    .status-banner strong { color: var(--accent); }
+    .strategy-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .strategy-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
 
     /* ─── STRONG ─── */
     strong { color: var(--text); }
@@ -338,23 +236,20 @@
     /* ─── FOOTER ─── */
     footer {
       text-align: center;
-      padding: 3rem 2rem;
+      padding: 2.5rem 2rem;
       border-top: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
     }
     footer a { color: var(--accent); text-decoration: none; }
-
-    /* ─── SCROLL REVEAL ─── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">PORTFOLIO <span style="color:var(--text-muted);font-weight:400;">本川桜空</span></div>
+  <div class="logo">PORTFOLIO <span>本川桜空</span></div>
   <ul>
     <li><a href="#overview">概要</a></li>
     <li><a href="#persona">ターゲット</a></li>
@@ -367,38 +262,34 @@
   </ul>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">LONG-TERM INTERNSHIP PROJECT</div>
-  <h1>SM診断ツール<br /><span>企画・開発・マーケティング</span></h1>
-  <p class="hero-sub">
+<!-- PROJECT HEADER -->
+<div class="project-header">
+  <div class="project-meta">Long-term Internship Project</div>
+  <h1>SM診断ツール<br />企画・開発・マーケティング</h1>
+  <p class="subtitle">
     日本最大級SMマッチングサイト「Luna」の新規ユーザー獲得と既存ユーザーのマッチング率向上を目的とした、診断コンテンツの企画・開発プロジェクト
   </p>
-  <div class="hero-badges">
-    <span class="badge primary">企画立案</span>
-    <span class="badge primary">マーケティング設計</span>
-    <span class="badge">ユーザーリサーチ</span>
-    <span class="badge">AI活用・ソロ開発</span>
-    <span class="badge">SNS拡散設計</span>
+  <div class="header-tags">
+    <span class="tag accent">企画立案</span>
+    <span class="tag accent">マーケティング設計</span>
+    <span class="tag">ユーザーリサーチ</span>
+    <span class="tag">AI活用・ソロ開発</span>
+    <span class="tag">SNS拡散設計</span>
   </div>
-  <div class="hero-cta">
-    <a href="https://lunadeeptype.vercel.app" target="_blank" class="btn">実際のサービスを見る →</a>
-  </div>
+  <a href="https://lunadeeptype.vercel.app" target="_blank" class="header-link">実際のサービスを見る →</a>
 </div>
 
 <!-- OVERVIEW -->
 <section id="overview">
-  <div class="reveal">
-    <div class="section-label">Overview</div>
-    <h2>プロジェクト概要</h2>
-  </div>
+  <div class="section-label">Overview</div>
+  <h2>プロジェクト概要</h2>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>1. プロジェクト名</h3>
     <p>SM診断ツール ― 4軸12タイプの性格診断コンテンツの企画・開発</p>
   </div>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>2. 背景と課題 <span style="font-size:0.75rem; font-weight:400; color:var(--text-muted);">Background &amp; Problem</span></h3>
     <p>
       退会者の約50%が「マッチングしない・合う相手がいない」を理由に離脱。
@@ -408,7 +299,7 @@
     </p>
   </div>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>3. 目的・KPI <span style="font-size:0.75rem; font-weight:400; color:var(--text-muted);">Objective &amp; Metrics</span></h3>
     <p>
       <strong>新規ユーザー獲得：</strong>診断コンテンツのSNS拡散による認知拡大・流入増加<br />
@@ -416,7 +307,7 @@
     </p>
   </div>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>4. 施策の概要 <span style="font-size:0.75rem; font-weight:400; color:var(--text-muted);">Solution</span></h3>
     <p>
       MBTIに着想を得た4軸・12タイプのSM診断ツールをゼロから企画・開発。
@@ -424,7 +315,7 @@
     </p>
   </div>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>5. 担当範囲・期間 <span style="font-size:0.75rem; font-weight:400; color:var(--text-muted);">Role &amp; Period</span></h3>
     <p>
       <strong>期間：</strong>2025年2月〜現在（長期インターン）<br />
@@ -435,12 +326,10 @@
 
 <!-- PERSONA -->
 <section id="persona">
-  <div class="reveal">
-    <div class="section-label">Target Persona</div>
-    <h2>ターゲット設定</h2>
-  </div>
+  <div class="section-label">Target Persona</div>
+  <h2>ターゲット設定</h2>
 
-  <div class="two-col reveal">
+  <div class="two-col">
     <div class="persona">
       <div class="persona-tag main">MAIN TARGET A（集客層）</div>
       <h3>20歳女子大学生</h3>
@@ -466,7 +355,7 @@
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top: 1.2rem;">
+  <div class="card" style="margin-top: 1rem;">
     <h3>マーケットプレイス全体の循環設計</h3>
     <ul>
       <li>女性の流入増加 → 男性ユーザーの「合う相手がいない」という離脱動機を解消</li>
@@ -479,12 +368,10 @@
 
 <!-- BACKGROUND（戦略・仮説） -->
 <section id="background">
-  <div class="reveal">
-    <div class="section-label">Strategy &amp; Hypothesis</div>
-    <h2>なぜ診断ツールなのか</h2>
-  </div>
+  <div class="section-label">Strategy &amp; Hypothesis</div>
+  <h2>なぜ診断ツールなのか</h2>
 
-  <div class="two-col reveal">
+  <div class="two-col">
     <div class="card">
       <h3>表の目的：新規ユーザー獲得</h3>
       <p>
@@ -506,12 +393,12 @@
     </div>
   </div>
 
-  <blockquote class="reveal">
+  <blockquote style="margin-top: 1rem;">
     特殊領域のマッチングアプリにとって、現ユーザーのマッチング率向上こそが売上への近道であり、
     ブランド強化→ユーザー数増加という好循環につながると考えた。
   </blockquote>
 
-  <div class="card reveal">
+  <div class="card" style="margin-top: 1rem;">
     <h3>診断系が流行る構造的理由</h3>
     <ul>
       <li>帰属意識と自己理解：「同じタイプの仲間がいる」という安心感がZ世代の心を掴む</li>
@@ -524,12 +411,10 @@
 
 <!-- PRODUCT -->
 <section id="product">
-  <div class="reveal">
-    <div class="section-label">Product Design</div>
-    <h2>プロダクト設計</h2>
-  </div>
+  <div class="section-label">Product Design</div>
+  <h2>プロダクト設計</h2>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>なぜ4軸設計にしたのか</h3>
     <p>
       MBTIの成功により、Z世代には「複数軸で自分を定義する」というリテラシーが既に備わっている。
@@ -539,7 +424,7 @@
     </p>
   </div>
 
-  <div class="axis-grid reveal">
+  <div class="axis-grid" style="margin-top: 0.2rem;">
     <div class="axis-card">
       <div class="axis-num">AXIS 01</div>
       <h4>役割の傾向</h4>
@@ -582,7 +467,7 @@
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top: 1.2rem;">
+  <div class="card" style="margin-top: 1rem;">
     <h3>追加要素 ― 「Tags」</h3>
     <p>
       12タイプでは捉えきれない個々人のこだわりや特性を補完するために、「Tags」を設計。
@@ -595,12 +480,10 @@
 
 <!-- TECH -->
 <section id="tech">
-  <div class="reveal">
-    <div class="section-label">Development</div>
-    <h2>開発について</h2>
-  </div>
+  <div class="section-label">Development</div>
+  <h2>開発について</h2>
 
-  <div class="card reveal">
+  <div class="card">
     <h3>AI活用によるソロ開発</h3>
     <p>
       エンジニアリソースを使わず、Claude Code などのAIツールを戦略的に活用して開発。
@@ -609,7 +492,7 @@
     </p>
   </div>
 
-  <div class="tech-list reveal" style="margin-top: 1rem;">
+  <div class="tech-list" style="margin-top: 0.8rem;">
     <span class="tech-chip">Next.js 14</span>
     <span class="tech-chip">TypeScript</span>
     <span class="tech-chip">Tailwind CSS</span>
@@ -619,7 +502,7 @@
     <span class="tech-chip">Google Analytics</span>
   </div>
 
-  <div class="card reveal" style="margin-top: 1.2rem;">
+  <div class="card" style="margin-top: 1rem;">
     <h3>収集しているデータ</h3>
     <ul>
       <li>診断結果の分布</li>
@@ -632,23 +515,17 @@
 
 <!-- STRATEGY -->
 <section id="strategy">
-  <div class="reveal">
-    <div class="section-label">Marketing Strategy</div>
-    <h2>拡散戦略</h2>
-  </div>
+  <div class="section-label">Marketing Strategy</div>
+  <h2>拡散戦略</h2>
 
-  <div class="reveal" style="margin-bottom: 2rem;">
-    <div class="two-col">
-      <div class="strategy-card">
-        <div class="icon">📣</div>
-        <h4>公式SNSでの周知</h4>
-        <p>LunaのX・インスタ公式アカウントから既存ユーザーへ告知。アプリ内ユーザーへのリーチを最初のステップとして設計。</p>
-      </div>
-      <div class="strategy-card">
-        <div class="icon">🎬</div>
-        <h4>プロモーション動画への挿入</h4>
-        <p>Lunaの既存プロモーション動画のラストに診断ツールの紹介を追加。視聴者を自然な流れで診断へ誘導する。</p>
-      </div>
+  <div class="two-col">
+    <div class="strategy-card">
+      <h4>公式SNSでの周知</h4>
+      <p>LunaのX・インスタ公式アカウントから既存ユーザーへ告知。アプリ内ユーザーへのリーチを最初のステップとして設計。</p>
+    </div>
+    <div class="strategy-card">
+      <h4>プロモーション動画への挿入</h4>
+      <p>Lunaの既存プロモーション動画のラストに診断ツールの紹介を追加。視聴者を自然な流れで診断へ誘導する。</p>
     </div>
   </div>
 
@@ -656,30 +533,27 @@
 
 <!-- FEEDBACK -->
 <section id="feedback">
-  <div class="reveal">
-    <div class="section-label">Feedback</div>
-    <h2>テスト段階のフィードバック</h2>
-  </div>
+  <div class="section-label">Feedback</div>
+  <h2>テスト段階のフィードバック</h2>
 
-  <div class="status-banner reveal">
-    <div class="status-dot"></div>
+  <div class="status-banner">
     <p><strong>公開予定：2025年4月21日</strong> ── 現在テスト運用中。ユーザーの反応・フィードバックをもとに最終調整を進めています。</p>
   </div>
 
-  <div class="card reveal" style="margin-top: 2rem;">
-    <div class="persona-tag main" style="margin-bottom: 1rem;">ターゲット層と同年代の方（SM初心者・未経験層）</div>
-    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.2rem;">
+  <div class="card" style="margin-top: 1rem;">
+    <div class="persona-tag main" style="margin-bottom: 0.8rem;">ターゲット層と同年代の方（SM初心者・未経験層）</div>
+    <p style="margin-bottom: 1rem;">
       「わかりやすさ」と「没入感」が高く評価された。SMに馴染みのない層でも設問・文章ともにストレスなく読み進められ、
       診断後の充実感まで設計できていることが確認できた。
     </p>
     <blockquote>「分析とかメッセージとかも楽しく読めた。想像より長くて、診断後も充実感すごかった」</blockquote>
     <blockquote>「設問内容が分かりやすく、直感的に選択できて楽しかった。」</blockquote>
-    <blockquote style="border-color: var(--accent2);">「4軸スコアの説明を読めば"確かに自分こっち側だな〜"と思ったけど、診断結果の説明文にピンと来ない部分があった」</blockquote>
+    <blockquote>「4軸スコアの説明を読めば"確かに自分こっち側だな〜"と思ったけど、診断結果の説明文にピンと来ない部分があった」</blockquote>
   </div>
 
-  <div class="card reveal">
-    <div class="persona-tag sub" style="margin-bottom: 1rem;">SMに詳しい方（有識者層）</div>
-    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.2rem;">
+  <div class="card">
+    <div class="persona-tag sub" style="margin-bottom: 0.8rem;">SMに詳しい方（有識者層）</div>
+    <p style="margin-bottom: 1rem;">
       既存の診断にはなかった「4軸の新しさ」が刺さった。精神/肉体・日常/非日常という軸は有識者にとって新鮮な切り口となり、
       自己を見直すきっかけとしても機能していた。精度の高さも複数の声から確認できた。
     </p>
@@ -688,7 +562,7 @@
     <blockquote>「診断結果が想定と違っていたから、自分の中で変化があったのかなと見直すきっかけになって良かった」</blockquote>
   </div>
 
-  <div class="card reveal" style="border-color: var(--accent); background: rgba(124,58,237,0.03);">
+  <div class="card" style="border-color: var(--accent);">
     <h3>Next Action ― テキストのブラッシュアップ</h3>
     <p>
       初心者層から「診断結果の説明文にピンと来ない部分があった」という声が挙がった。
@@ -700,33 +574,27 @@
 
 <!-- NEXT STEPS -->
 <section id="next">
-  <div class="reveal">
-    <div class="section-label">Next Steps</div>
-    <h2>今後の展開</h2>
-  </div>
+  <div class="section-label">Next Steps</div>
+  <h2>今後の展開</h2>
 
-  <div class="card reveal" style="margin-bottom: 1rem;">
+  <div class="card" style="margin-bottom: 1rem;">
     <h3>Luna連携機能の実装</h3>
     <p>LunaアプリからSM診断ツールへ、診断ツールからLunaへ、双方向に行き来できる導線を実装。診断体験をLuna利用の入口にする。</p>
   </div>
-  <div class="two-col reveal">
+  <div class="strategy-grid">
     <div class="strategy-card">
-      <div class="icon">💜</div>
       <h4>相性提案 → 登録誘導</h4>
       <p>「あなたと最も相性が良いのは〇〇タイプ。今Lunaにはこのタイプが〇〇人登録中」と表示し、「相性の良い相手を探す」「Lunaに登録！」の導線を設置。</p>
     </div>
     <div class="strategy-card">
-      <div class="icon">📧</div>
       <h4>メアド入力 × メルマガ登録</h4>
       <p>結果画面のメアド入力フォームで診断結果を保存。同時にメルマガ登録を行い、継続的な接点を確保する。</p>
     </div>
     <div class="strategy-card">
-      <div class="icon">✍️</div>
       <h4>プロフィール自動生成（AI）</h4>
       <p>診断結果をワンクリックでLunaの自己紹介文に変換できるボタンを設置。登録時の「何を書けばいいかわからない」という摩擦をAIで解消する。</p>
     </div>
     <div class="strategy-card">
-      <div class="icon">📊</div>
       <h4>効果検証</h4>
       <p>マッチング率15%向上の達成度をデータで検証。設問ごとの回答分布やシェア率など収集データをもとに施策を継続改善する。</p>
     </div>
@@ -735,20 +603,12 @@
 
 <!-- FOOTER -->
 <footer>
-  <p style="margin-bottom: 0.5rem;">SM診断ツール — Long-term Internship Project</p>
+  <p style="margin-bottom: 0.4rem;">SM診断ツール — Long-term Internship Project</p>
   <p><a href="https://lunadeeptype.vercel.app" target="_blank">lunadeeptype.vercel.app</a></p>
-  <p style="margin-top: 1rem; font-size: 0.75rem; color: #9999bb;">※ 本ポートフォリオはインターン先企業の許可を得た上で公開しています。</p>
+  <p style="margin-top: 0.8rem; font-size: 0.72rem;">※ 本ポートフォリオはインターン先企業の許可を得た上で公開しています。</p>
 </footer>
 
 <script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
